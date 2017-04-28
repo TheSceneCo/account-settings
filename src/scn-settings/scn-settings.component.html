@@ -1,0 +1,76 @@
+<div class="scroll-section">
+  <h1>
+    {{'SETTINGS.PAGE_TITLE' | translate}}
+  </h1>
+
+  <accordion>
+
+    <accordion-group heading="{{'SETTINGS.PERSONAL_INFO_TITLE' | translate}}" class="panel-default"
+                     [isOpen]="true"
+                     class="filter-section">
+      <div class="expand relative">
+        <form name="settingsForm" ng-submit="settingsForm.$valid && vm.savePersonalDetails()"
+              novalidate>
+          <div class="margin-row">
+            <label>{{'SETTINGS.FIRST_NAME_LABEL' | translate}}</label>
+            <input type="text" name="firstName" ng-model="vm.formData.firstName"/>
+          </div>
+          <div class="margin-row">
+            <label>{{'SETTINGS.LAST_NAME_LABEL' | translate}}</label>
+            <input type="text" name="lastName" ng-model="vm.formData.lastName"/>
+          </div>
+          <div class="margin-row">
+            <label>{{'SETTINGS.EMAIL_TITLE' | translate}}</label>
+            <input type="email" name="email" ng-model="vm.formData.email"/>
+          </div>
+          <div class="margin-row">
+            <label>{{'SETTINGS.PHONE_TITLE' | translate}}</label>
+            <input type="tel" name="email" ng-model="vm.formData.phoneNumber"/>
+          </div>
+          <div class="margin-row tripple">
+            <button type="submit">{{'SETTINGS.SUBMIT' | translate}}
+              <span loader="vm.saving" theme="button"></span>
+            </button>
+
+          </div>
+        </form>
+      </div>
+    </accordion-group>
+
+    <accordion-group heading="{{'SETTINGS.PROFILE_IMAGE' | translate}}" class="panel-default"
+                     is-open="false"
+                     class="filter-section">
+      <div class="expand relative">
+        <div class="poster-preview" ng-show="!vm.editingProfileImage">
+          <!--<img ng-if="vm.halLinks.actualImage"-->
+          <!--src="{{vm.halLinks.actualImage.href}}?access_token={{accessToken.access_token}}&width=500&height=500"/>-->
+        </div>
+
+        <div class="margin-row double">
+          <label class="button">
+            <!--<span ng-if="vm.halLinks.actualImage">Change Your Profile Image</span>-->
+            <span>
+              Add a Profile Image
+            </span>
+            <!--<input style="display:none;" id="profile-image" ng-model="vm.profileImageFile" type="file"-->
+            <!--onchange="angular.element(this).scope().profileSourceChanged(this)">-->
+          </label>
+        </div>
+
+        <div *ngIf="false">
+          <!--<ts-croppie src="vm.profileSource" ng-model="vm.profileImage"-->
+          <!--options="{{vm.posterOptions}}"-->
+          <!--result="{{vm.posterResultOptions}}"></ts-croppie>-->
+          <div class="margin-row">
+            <button ng-click="vm.saveProfileImage()"
+                    ng-class="{'loading': vm.profilePhotoLoading}">Save
+              <span loader="vm.profilePhotoLoading" theme="button"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </accordion-group>
+
+  </accordion>
+
+</div>

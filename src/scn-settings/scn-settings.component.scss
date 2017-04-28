@@ -1,0 +1,27 @@
+@import '~@thescene/scn-theme/theme.scss';
+
+:host {
+  h1 {
+    color: red;
+  }
+
+  accordion {
+    margin: 100px;
+    accordion-group {
+      margin: 200px;
+    }
+  }
+
+  .panel {
+    color: red;
+  }
+
+  .panel-title {
+    border-bottom: 1px solid #ccc;
+    font-size: 19px !important;
+    font-weight: bold;
+    padding: 20px 0;
+  }
+}
+
+
